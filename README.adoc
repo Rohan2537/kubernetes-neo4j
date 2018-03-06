@@ -222,6 +222,28 @@ This will forward ports on the neo4j-core-0 pod:
 Open `http://localhost:8474` and type `:server connect` if it doesn't do it automatically.
 We then need to update the `Host` field to be `bolt://localhost:8687` and fill in a username and password if applicable.
 
+== LoadBalancer
+
+If you dont want to do port forwading in the last step, the setup also start a load balancer for the browser and bolt.
+Check the url in minikube service for the LoadBalancer url's.
+
+```
+$ minikube service list
+|-------------|----------------------|--------------------------------|
+|  NAMESPACE  |         NAME         |              URL               |
+|-------------|----------------------|--------------------------------|
+| default     | kubernetes           | No node port                   |
+| default     | neo4j                | No node port                   |
+| default     | neo4j-public         | http://192.168.99.104:30388    |
+|             |                      | http://192.168.99.104:30598    |
+| kube-system | kube-dns             | No node port                   |
+| kube-system | kubernetes-dashboard | http://192.168.99.104:30000    |
+|-------------|----------------------|--------------------------------|
+```
+
+One of the url will be browser link for Neo4j Browser, while connecting to the server using browser use the other link and replace `http://` with `bolt://` as the url for connection.
+
+
 == Security
 
 By default we've disabled security to make it easier to play around with the cluster.

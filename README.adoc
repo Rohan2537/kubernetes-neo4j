@@ -5,6 +5,12 @@ It will work for Neo4j versions 3.1 and higher.
 
 You can either setup Kubernetes locally using link:https://github.com/kubernetes/minikube[minikube] or on one of the cloud providers e.g. link:http://kubernetes.io/docs/getting-started-guides/gce/[Google Compute Engine]
 
+Start Minikube with at least 8G of RAM
+
+```
+$ minikube start --memory 8192
+```
+
 Once you've got that setup you can run the following command to see where Kubernetes is running.
 e.g. on my machine
 
